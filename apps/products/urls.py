@@ -7,8 +7,8 @@ app_name = "products"
 urlpatterns = [
     path("tags/", TagListView.as_view(), name="tag-list"),
     path("tags/<int:pk>/", TagDetailView.as_view(), name="tag-detail"),
-    # path("tags/create/", TagCreateView.as_view(), name="tag-create"),
-    path("tags/create/", create_tag, name="tag-create"),
+    path("tags/create/", TagCreateView.as_view(), name="tag-create"),
+    # path("tags/create/", create_tag, name="tag-create"),
     path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
     path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="task-type-delete"),
 ]

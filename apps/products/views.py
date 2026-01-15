@@ -3,36 +3,67 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from apps.products.forms import TagForm
+from apps.products.forms import TagForm, TagUnboundedForm
 from apps.products.models import Tag
 
 
-def create_tag(request):
-    if request.method == "POST":
-        form = TagForm(request.POST)
+# def create_tag(request):
+#     if request.method == "POST":
+#         form = TagUnboundedForm(request.POST)
+#
+#         # print(form.is_valid())
+#         # print(form.is_valid())
+#         # print(form.cleaned_data)
+#         # print(form.as_table())
+#         # print(form.base_fields["name"].label)
+#         # print(form.fields["name"].label)
+#         # print(form.get_context())
+#         # print("data", form.data)
+#         # form.is_valid()
+#         # print("cleaned_data", form.cleaned_data)
+#         # print(form.template_name)
+#         # print("instance", form.instance)
+#         # print("initial", form.initial)
+#
+#         print(form.data)
+#
+#
+#
+#         if form.is_valid():
+#             return HttpResponse("Tag was created successfully")
+#             # return HttpResponseRedirect(reverse("products:tag-list"))
+#     form = TagUnboundedForm()
+#     return render(request, "products/tag_form.html", context={"form": form})
 
-        # print(form.errors)
-        # print(form.is_valid())
-        # print(form.cleaned_data)
-        # print(form.as_table())
-        # print(form.base_fields["name"].label)
-        # print(form.fields["name"].label)
-        # print(form.get_context())
-        # print("data", form.data)
-        # form.is_valid()
-        # print("cleaned_data", form.cleaned_data)
-        # print(form.template_name)
 
-        # print(dir(form))
-
-
-
-        if form.is_valid():
-            # form.save()
-            return HttpResponse("Tag was created successfully")
-            return HttpResponseRedirect(reverse("products:tag-list"))
-    form = TagForm()
-    return render(request, "products/tag_form.html", context={"form": form})
+# def create_tag(request):
+#     if request.method == "POST":
+#         form = TagForm(request.POST)
+#
+#         # print(form.errors)
+#         # print(form.is_valid())
+#         # print(form.cleaned_data)
+#         # print(form.as_table())
+#         # print(form.base_fields["name"].label)
+#         # print(form.fields["name"].label)
+#         # print(form.get_context())
+#         # print("data", form.data)
+#         # form.is_valid()
+#         # print("cleaned_data", form.cleaned_data)
+#         # print(form.template_name)
+#         # print("instance", form.instance)
+#         # print("initial", form.initial)
+#
+#         # print(dir(form))
+#
+#
+#
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponse("Tag was created successfully")
+#             # return HttpResponseRedirect(reverse("products:tag-list"))
+#     form = TagForm()
+#     return render(request, "products/tag_form.html", context={"form": form})
 
 
 class TagCreateView(LoginRequiredMixin, generic.CreateView):
